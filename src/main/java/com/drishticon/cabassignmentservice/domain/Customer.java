@@ -11,16 +11,20 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     @JsonProperty("customerId")
     private Integer id;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "geo_location_id")
+    @JoinColumn(name = "location_id")
     @JsonProperty("geoLocation")
     private Location location;
 
     public Customer() {
+    }
+
+    public Customer(Location location) {
+        this.location = location;
     }
 
     public Customer(Integer id, Location location) {

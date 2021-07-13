@@ -3,11 +3,10 @@ package com.drishticon.cabassignmentservice.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "geo_location")
+@Table(name = "location")
 public class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "geo_location_id")
+    @Column(name = "location_id")
     String id;
     @Column(name = "latitude")
     private Double latitude;
@@ -60,5 +59,25 @@ public class Location {
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Location location = (Location) o;
+
+        if (!id.equals(location.id)) return false;
+        if (!latitude.equals(location.latitude)) return false;
+        return longitude.equals(location.longitude);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + latitude.hashCode();
+        result = 31 * result + longitude.hashCode();
+        return result;
     }
 }

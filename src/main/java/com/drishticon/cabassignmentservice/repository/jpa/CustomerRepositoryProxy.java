@@ -17,6 +17,11 @@ public class CustomerRepositoryProxy implements CustomerRepository {
     }
 
     @Override
+    public Customer getByLocationId(String id) {
+        return repository.findByLocationId(id);
+    }
+
+    @Override
     public Customer save(Customer customer) {
         return repository.save(customer);
     }

@@ -5,4 +5,4 @@ RUN mvn -f /home/app/pom.xml clean package -DskipTests
 
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/cab-assignment-service-0.0.1-SNAPSHOT.jar /usr/local/lib/cab-assignment-service.jar
-ENTRYPOINT ["java","-jar","/usr/local/lib/cab-assignment-service.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/cab-çassignment-service.jar"]

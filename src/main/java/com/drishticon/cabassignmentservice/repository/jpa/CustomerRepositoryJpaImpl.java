@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface CustomerRepositoryJpaImpl extends JpaRepository<Customer, Integer> {
+    Customer findByLocationId(String id);
 }

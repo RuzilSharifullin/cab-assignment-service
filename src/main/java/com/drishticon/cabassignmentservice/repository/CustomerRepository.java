@@ -6,5 +6,7 @@ public interface CustomerRepository {
 
     Customer getByCustomerId(int id);
 
+    Customer getByLocationId(String id);
+
     Customer save(Customer customer);
 }
