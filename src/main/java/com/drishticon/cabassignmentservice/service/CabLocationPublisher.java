@@ -3,6 +3,7 @@ package com.drishticon.cabassignmentservice.service;
 import com.drishticon.cabassignmentservice.domain.Cab;
 import com.drishticon.cabassignmentservice.util.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -17,8 +18,7 @@ public class CabLocationPublisher {
     @Autowired
     private final KafkaTemplate<String, Cab> kafkaTemplate;
 
-
-    private String topic = "cab_location";
+    private static String topic = "cab_location";
 
     public CabLocationPublisher(KafkaTemplate<String, Cab> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
