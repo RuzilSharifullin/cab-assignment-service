@@ -71,9 +71,9 @@ services:
     expose:
       # Opens port 3306 on the container
       - '3306'
-      # Where our data will be persisted
-    volumes:
-      - my-db:/var/lib/mysql
+#      # Where our data will be persisted
+#    volumes:
+#      - my-db:/var/lib/mysql
     depends_on:
       - "kafka"
     links:
@@ -81,6 +81,6 @@ services:
     networks:
       - app-tier
 
-# Names our volume
-volumes:
-  my-db:
+## Names our volume
+#volumes:
+#  my-db:
