@@ -14,11 +14,14 @@ import java.util.List;
 @Transactional
 public class CabAssignmentService {
 
-    @Autowired
     CabRepository cabRepository;
 
-    @Autowired
     CustomerRepository customerRepository;
+
+    public CabAssignmentService(CabRepository cabRepository, CustomerRepository customerRepository) {
+        this.cabRepository = cabRepository;
+        this.customerRepository = customerRepository;
+    }
 
     public List<Cab> getAvailableCabsNextTo(String locationId, int requestedNumberOfCabs) {
         Customer customer = customerRepository.getByLocationId(locationId);

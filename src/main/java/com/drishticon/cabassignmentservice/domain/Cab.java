@@ -1,6 +1,10 @@
 package com.drishticon.cabassignmentservice.domain;
 
+import com.drishticon.cabassignmentservice.web.View;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 
@@ -9,13 +13,14 @@ import javax.persistence.*;
 public class Cab {
     @Id
     @Column(name = "cab_id")
-    @JsonProperty("CabId")
+    @JsonProperty("cabId")
+    @JsonView(View.PartialView.class)
     private String id;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
-    @JsonProperty("geoLocation")
+    @JsonProperty(value = "geoLocation")
     private Location location;
-    @JsonProperty("driverId")
+    @JsonProperty(value = "driverId")
     @Column(name = "driver_email")
     private String email;
     @Column(name = "is_assigned")

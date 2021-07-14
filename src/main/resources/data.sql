@@ -3,7 +3,7 @@ DELETE FROM cab;
 DELETE FROM location;
 
 INSERT INTO location (latitude, longitude, location_id)
-VALUES (44.55, 44.55, 'abc1234');
+VALUES (77.77, 77.77, 'abc1234');
 INSERT INTO customer (location_id)
 VALUE ('abc1234');
 

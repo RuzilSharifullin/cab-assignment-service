@@ -1,5 +1,7 @@
 package com.drishticon.cabassignmentservice.domain;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.persistence.*;
 
 @Entity

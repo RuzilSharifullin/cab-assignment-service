@@ -1,9 +1,8 @@
 package com.drishticon.cabassignmentservice.service;
 
 import com.drishticon.cabassignmentservice.domain.Cab;
-import com.drishticon.cabassignmentservice.util.UuidGenerator;
+import com.drishticon.cabassignmentservice.util.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -28,7 +27,8 @@ public class CabLocationPublisher {
 
     @Async
     public void publish(Cab cab) {
-        UUID uuid = UuidGenerator.generate();
+        UUID uuid = UUIDGenerator.generate();
+
         Message<Cab> message = MessageBuilder.withPayload(cab).setHeader("eventName", topic)
                 .setHeader("eventID", "" + uuid)
                 .build();

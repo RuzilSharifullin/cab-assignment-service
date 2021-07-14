@@ -2,6 +2,7 @@ package com.drishticon.cabassignmentservice.web;
 
 import com.drishticon.cabassignmentservice.domain.Cab;
 import com.drishticon.cabassignmentservice.service.CabAssignmentService;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class CabAssignmentController {
 
 
     @GetMapping
+    @JsonView(View.PartialView.class)
     public List<Cab> getAvailableCabsNextTo(@RequestParam("locations") String locationId,
                                             @RequestParam("cabs") int requestedNumberOfCabs) {
         return cabAssignmentService.getAvailableCabsNextTo(locationId, requestedNumberOfCabs);

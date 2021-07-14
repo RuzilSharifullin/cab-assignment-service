@@ -5,14 +5,14 @@ import com.fasterxml.uuid.NoArgGenerator;
 
 import java.util.UUID;
 
-public class UuidGenerator {
+public class UUIDGenerator {
     static {
         timeBasedGenerator = Generators.timeBasedGenerator();
     }
 
     private static NoArgGenerator timeBasedGenerator;
 
-    private UuidGenerator() {
+    private UUIDGenerator() {
     }
 
     public static UUID generate() {
