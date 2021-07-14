@@ -19,6 +19,6 @@ CREATE TABLE cab
 (
     cab_id          VARCHAR(3)  PRIMARY KEY,
     driver_email    VARCHAR(20) UNIQUE,
-    is_assigned     BOOLEAN DEFAULT FALSE,
+    is_assigned     BOOLEAN DEFAULT TRUE,
     location_id     VARCHAR(20) REFERENCES location(location_id)
 );

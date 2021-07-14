@@ -9,12 +9,17 @@ import javax.persistence.*;
 public class Cab {
     @Id
     @Column(name = "cab_id")
-    @JsonProperty("cabId")
+    @JsonProperty("CabId")
     private String id;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
     @JsonProperty("geoLocation")
-    Location location;
+    private Location location;
+    @JsonProperty("driverId")
+    @Column(name = "driver_email")
+    private String email;
+    @Column(name = "is_assigned")
+    private boolean isAssigned;
 
     public Cab() {
     }
@@ -22,6 +27,12 @@ public class Cab {
     public Cab(String id, Location location) {
         this.id = id;
         this.location = location;
+    }
+
+    public Cab(String id, Location location, String email) {
+        this.id = id;
+        this.location = location;
+        this.email = email;
     }
 
     public String getId() {
@@ -38,6 +49,22 @@ public class Cab {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isAssigned() {
+        return isAssigned;
+    }
+
+    public void setAssigned(boolean assigned) {
+        isAssigned = assigned;
     }
 
     @Override

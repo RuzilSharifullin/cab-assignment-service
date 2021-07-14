@@ -11,7 +11,7 @@ public interface CabRepositoryJpaImpl extends JpaRepository<Cab, String> {
 
     //https://stackoverflow.com/questions/2234204/find-nearest-latitude-longitude-with-an-sql-query
     @Query(value =
-            "SELECT cab_id, cab.location_id, SQRT(" +
+            "SELECT *, SQRT(" +
             "POW(69.1 * (latitude - :latitude), 2) + " +
             "POW(69.1 * (:longitude - longitude) * COS(latitude / 57.3), 2)) AS distance " +
             "FROM cab JOIN location on cab.location_id = location.location_id " +
